@@ -10,9 +10,9 @@ namespace Практика6
     {
         static void Show (double[,] arr)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (int j = 0; j < arr.GetLength(1); j++)
                     Console.Write(string.Format("{0,3}", arr[i, j]));
                 Console.WriteLine();
             }
@@ -21,15 +21,15 @@ namespace Практика6
 
         static double[,] Reverse(double [,] arr)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < arr.GetLength(1)/2; j++)
                 {
                     if (i % 2 == 0)
                     {
                         double temp = arr[i, j];
-                        arr[i, j] = arr[i, 7 - j];
-                        arr[i, 7 - j] = temp;
+                        arr[i, j] = arr[i, arr.GetLength(1) - 1 - j];
+                        arr[i, arr.GetLength(1) - 1 - j] = temp;
                     }
                 }
             }
